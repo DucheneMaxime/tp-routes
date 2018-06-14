@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Formation } from '../entity/formation';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-formations',
@@ -10,7 +11,7 @@ import { Formation } from '../entity/formation';
 export class FormationsComponent implements OnInit {
   private _liste : Array<Formation>;
 
-  constructor(){}
+  constructor(private route: ActivatedRoute){}
 
   public get liste() : Array<Formation> {
     return this._liste;
@@ -25,6 +26,7 @@ export class FormationsComponent implements OnInit {
     this.liste.push(new Formation("Spring"));
     this.liste.push(new Formation("Angular"));
     this.liste.push(new Formation("Java"));
+    this.route.data.subscribe(data => console.log('Formations', data['formations']));
   }
 
 }

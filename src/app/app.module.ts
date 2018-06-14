@@ -7,6 +7,7 @@ import { DetailComponent } from './detail/detail.component';
 import { ROUTES } from "./app.routes";
 import { FormationsComponent } from './formations/formations.component';
 import { ConnaissancesComponent } from './connaissances/connaissances.component';
+import { FormationsResolvers } from './resolver/FormationsResolver';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ConnaissancesComponent } from './connaissances/connaissances.component'
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
+    FormationsResolvers
   ],
   bootstrap: [AppComponent]
 })
