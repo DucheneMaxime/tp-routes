@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { Router, NavigationStart, NavigationEnd, NavigationError, NavigationCancel } from "@angular/router";
 import { PATH_HOME, PATH_DETAIL } from './consts';
 
 @Component({
@@ -26,5 +26,19 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe((event) => {
       console.log('EVENTS', event);
     })
+    
+    this.router.events.subscribe((event) => {
+      if(event instanceof NavigationStart)
+        console.log('START', event);
+        
+      if(event instanceof NavigationEnd)
+        console.log('END', event);
+      
+      if(event instanceof NavigationError)
+        console.log('ERROR', event);
+        
+      if(event instanceof NavigationCancel)
+        console.log('CANCEL', event);
+    });
   }
 }
